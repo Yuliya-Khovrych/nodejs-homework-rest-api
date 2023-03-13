@@ -7,9 +7,9 @@ const addSchema = Joi.object({
 });
 
 const putSchema = Joi.object({
-  name: Joi.string(),
-  email: Joi.string(),
-  phone: Joi.string(),
+  name: Joi.string().optional(),
+  email: Joi.string().optional(),
+  phone: Joi.string().optional(),
 });
 
 module.exports = {

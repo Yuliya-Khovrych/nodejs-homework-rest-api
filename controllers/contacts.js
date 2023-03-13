@@ -22,7 +22,11 @@ const add = async (req, res) => {
 };
 
 const updateById = async (req, res) => {
+  const { name, email, phone } = req.body;
   const { id } = req.params;
+   if (!name && !email && !phone) {
+     res.status(400).json({ message: '"missing fields"' });
+   }
   const result = await contacts.updateContact(id, req.body);
   if (!result) {
     throw HttpError(404, "Not found");
